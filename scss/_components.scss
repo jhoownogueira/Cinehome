@@ -1,0 +1,47 @@
+.card-content {
+    width: 100%;
+    max-width: 20.5rem;
+    height: 41.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &:hover {
+        .image-mask {
+            transform: translateY(-5px) scaleY(1.03);            
+        }
+    }    
+    .image-mask {
+        width: 100%;
+        max-width: 20.5rem;
+        height: 35rem;
+        border-radius: 1.4rem;
+        background: url(../img/peakblinders.png) no-repeat center center;
+        background-size: cover;
+        transition: all .5s cubic-bezier(0.76, -0.02, 0.29, 1.01);
+    }
+    .info-card {
+        width: 100%;
+        max-width: 18.5rem;
+        height: 5.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+        span {
+            font-weight: 400;
+            font-size: 1.4rem;
+            line-height: 100%;
+            color: $brand-red;
+        }
+    }
+}
+
+// HTML Card
+// <button class="card-content">
+//     <div class="image-mask">
+//     </div>
+//     <div class="info-card">
+//         <h3>Peaky Blinders: Sangue, Apostas e Navalhas</h3>
+//         <span>2022</span>
+//     </div>
+// </button>
