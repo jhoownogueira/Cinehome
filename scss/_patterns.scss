@@ -1,0 +1,29 @@
+h1, h2, h3, p {
+    color: $white
+}
+
+h1, h2, h3 {
+    line-height: 100%;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 120%;
+}
