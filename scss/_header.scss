@@ -4,6 +4,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1.6rem 0;
     .container-grid {
         display: flex;
         justify-content: space-between;
@@ -20,6 +21,7 @@ header {
     background-color: $brand-black100;
     padding: 4rem 0;
     transition: all 1s;
+    z-index: 99;
     .menu-lateral {
         .icon-menu {
             display: flex;
