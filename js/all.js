@@ -1,1 +1,1 @@
-"use strict";
+"use strict";var menuHamburguer=document.querySelector(".menu-hamburguer"),btnHamburguer=document.getElementById("btn-hamburguer");function toggleClass(e){e.classList.toggle("active")}btnHamburguer.addEventListener("click",function(){toggleClass(menuHamburguer)});
