@@ -1,6 +1,7 @@
 var swiper = new Swiper(".content-slides", {
     observer: true,
     observeParents: true,
+    loop: true,
     spaceBetween: 30,
     effect: "fade",
     navigation: {
