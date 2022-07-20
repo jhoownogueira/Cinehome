@@ -41,8 +41,23 @@
 }
 
 .listas-conteudos {
+    padding-bottom: 10rem;
     .container-grid {
         .lista-videos {
+            width: 100%;
+            .swiper {
+                display: flex;
+                overflow: hidden;
+                .swiper-wrapper {
+                    display: flex;
+                    max-width: 100%;
+                    height: 41.7rem;
+                    .swiper-slide {
+                        width: 179.4px;
+                        margin-right: 32px;
+                    }
+                }
+            }
             margin-top: 6.4rem;
             h2 {
                 font-size: 3.2rem;
