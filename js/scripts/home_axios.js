@@ -37,7 +37,7 @@ axios({
         
         const infoCard = {
             nome: index.name,
-            ano: index.first_air_date,
+            ano: index.first_air_date.slice(0,4),
             image: index.poster_path,
         }
 
@@ -84,7 +84,7 @@ axios({
 
         const infoCard = {
             nome: index.title,
-            ano: index.release_date,
+            ano: index.release_date.slice(0,4),
             image: index.poster_path,
         }
 
