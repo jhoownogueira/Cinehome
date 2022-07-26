@@ -32,6 +32,9 @@
             line-height: 100%;
             color: $brand-red;
         }
+        small {
+            display: none;
+        }
     }
 }
 
@@ -45,88 +48,6 @@
 //     </div>
 // </button>
 
-.card-actor {
-    width: 100%;
-    max-width: 9.6rem;
-    height: 14.7rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    transition: all 0.3s ease-in;
-    .image {
-        width: 9.6rem;
-        height: 9.6rem;
-        border-radius: 50%;
-        border: 2px solid $brand-gray;
-        background: url(../img/thomas-shelby.jpg) no-repeat center center;
-        background-size: cover;
-        margin-bottom: 0.8rem;
-    }
-    .info {
-        text-align: center;
-        p {
-            font-weight: 300;
-            font-size: 1rem;
-            line-height: 117%;
-        }
-        span {
-            font-weight: 300;
-            font-size: 1rem;
-            line-height: 117%;
-            color: $brand-red;
-        }
-    }
-    &:hover {
-        transform: scale(1.03);
-    }
-}
-
-// HTML Card Actor
-// <button class="card-actor">
-//     <div class="image">
-//     </div>
-//     <div class="info">
-//         <h6>Cillian Murphy</h6>
-//         <p>Tommy Shelby</p>
-//         <span>36 episódios</span>
-//     </div>
-// </button>
-
-.input-pesquisar {
-    position: relative;
-    width: 100%;
-    max-width: 43.7rem;
-    height: 4.8rem;
-    input[type="text"] {
-        width: 100%;
-        height: 4.8rem;
-        border: 1px solid transparent;
-        border-radius: 16rem;
-        background-color: $brand-black70;
-        padding: 1.6rem 3.2rem 1.6rem 4.8rem;
-        font-weight: 300;
-        font-size: 1.6rem;
-        line-height: 100%;
-        color: $white;
-        caret-color: $brand-red;
-        transition: all 0.3s;
-        &:focus {
-            border: 1px solid $white;
-        }
-    }
-    .icon-pesquisar {
-        position: absolute;
-        top: 1.2rem;
-        left: 1.2rem;
-    }
-}
-
-// HTML Input Pesquisar
-// <div class="input-pesquisar">
-//     <input type="text" placeholder="Pesquisar">
-//     <img src="img/icon-pesquisar.svg" class="icon-pesquisar" id="input-pesquisar">
-// </div>
 
 .primary-button {
     width: 100%;

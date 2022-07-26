@@ -87,6 +87,9 @@ header {
                     &:active {
                         border-right: 4px solid $brand-red;
                     }
+                    &.active {
+                        border-right: 4px solid $brand-red;
+                    }
                     a {
                         display: flex;
                         align-items: center;

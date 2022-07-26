@@ -46,6 +46,14 @@
     }
 }
 
+.pesquisar {
+    .container-grid {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 .listas-conteudos {
     padding-bottom: 10rem;
     .container-grid {
