@@ -15,10 +15,6 @@
 <body>
     <header>
         <div class="container-grid">
-            <div class="input-pesquisar">
-                <input type="text" placeholder="Pesquisar">
-                <img src="img/icon-pesquisar.svg" class="icon-pesquisar" id="input-pesquisar">
-            </div>
             <img src="img/logo-cinehome.svg" alt="">
         </div>
     </header>
@@ -37,7 +33,7 @@
             </div>
             <nav>
                 <ul>
-                    <li>
+                    <li class="active">
                         <a href="">
                         <div class="icon">
                             <img src="img/icon-home.svg" alt="">
@@ -69,19 +65,11 @@
                         <span>Populares</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                        <div class="icon">
-                            <img src="img/icon-favoritos.svg" alt="">
-                        </div>
-                        <span>Favoritos</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>
     </aside>
-    <section class="slider-principal-content">
+    <section class="slider-principal-content" id="slider-home">
         <div class="container-grid">
             <div class="swiper content-slides" id="slider-principal">
                 <div class="swiper-wrapper" id="trending-home">
@@ -89,7 +77,7 @@
             </div>
         </div>
     </section>
-    <section class="listas-conteudos">
+    <section class="listas-conteudos" id="listas-home">
         <div class="container-grid">
             <div class="lista-videos" id="series-populares">
                 <h2>Series populares</h2>
@@ -106,8 +94,39 @@
                     </div>
                 </div>
             </div>
+            <div class="lista-videos" id="series-alta">
+                <h2>Series em alta</h2>
+                <div class="swiper slider-videos">
+                    <div class="swiper-wrapper" id="series-alta-home">
+                    </div>
+                </div>
+            </div>
+            <div class="lista-videos" id="filmes-alta">
+                <h2>Filmes em alta</h2>
+                <div class="swiper slider-videos">
+                    <div class="swiper-wrapper" id="filmes-alta-home">
+                    </div>
+                </div>
+            </div>
         </div>
+        </div>
+    </section>
+    <section class="details">
+        <div class="container-grid">
+            <div class="left-container">
+                <div class="image-mask">
+                    <div class="bottom">
+                        <div class="logo">
+                            <img src="img/icon-home.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="details-top">
 
+                </div>
+            </div>
         </div>
     </section>
     <script src="js/plugins.js"></script>
