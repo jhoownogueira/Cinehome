@@ -20,6 +20,8 @@ const sliderPrincipal = new Swiper("#slider-principal", {
 const sliderVideos = new Swiper(".slider-videos", {
   observer: true,
   observeParents: true,
+  slidesPerView: 1.4,
+  spaceBetween: 8,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,

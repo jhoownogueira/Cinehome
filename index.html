@@ -111,12 +111,25 @@
         </div>
         </div>
     </section>
-    <section class="details" id="detalhes-filmes-series">
-        <div class="container-grid">
-            <div class="details-container">
-                <div class="details-content">
-                    <h1>Nome do filmes</h1>
-                    <p>Sinopse do filmes</p>
+    <section class="modal">
+        <div class="overlay">
+            <div class="container-grid">
+                <div class="details-content" id="details-poster">
+                    <h1 id="details-nome">Nome do filmes</h1>
+                    <p id="details-sinopse">Sinopse do filmes</p>
+                    <span>Pontuação</span>
+                    <div class="circle-dashboard">
+                        <svg>
+                          <circle class="bg" cx="57" cy="57" r="30" />
+                          <circle id="meter-circle" class="meter" cx="57" cy="57" r="30" />
+                        </svg>
+                        <p id="meter-pontuacao"></p>
+                    </div>
+                </div>
+                <div class="container-buttons">
+                    <div class="btns">
+                        <button class="primary-button" id="btn-voltar">Voltar</button>
+                    </div>
                 </div>
             </div>
         </div>

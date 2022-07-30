@@ -12,13 +12,8 @@ header {
     }
     @include responsive(480px) {
         .container-grid {
-            .input-pesquisar {
-                img {
-                    display: block;
-                }
-            }
             img {
-                display: none;
+                display: block;
             }
         }
     }

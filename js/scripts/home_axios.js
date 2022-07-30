@@ -5,9 +5,16 @@ const areaSlideFilmes = document.getElementById("filmes-populares-home");
 const areaSlideHighTv = document.getElementById("series-alta-home");
 const areaSlideHighFilmes = document.getElementById("filmes-alta-home");
 const sliderHome = document.getElementById("slider-home");
-const details = document.getElementById("detalhes-filmes-series");
+
+const detailsPoster = document.getElementById("details-poster");
+const detailsNome = document.getElementById("details-nome");
+const detailsSinopse = document.getElementById("details-sinopse");
+const detailsMeterCircle = document.getElementById("meter-circle");
+const detailsMeterPontuacao = document.getElementById("meter-pontuacao");
+const btnVoltar = document.getElementById("btn-voltar");
 
 const clickHome = document.getElementById("home-page");
+
 
 const initHomePage = () => {
 
@@ -84,33 +91,22 @@ const initHomePage = () => {
                   sinopse: json.data.overview,
                   poster: json.data.backdrop_path,
                   data: json.data.release_date,
-                  pontuação: json.data.vote_average
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
 
                 }
-                sliderHome.innerHTML = "";
-                todasListas.innerHTML = "";
-                todasListas.style.padding = "0"
-                details.innerHTML = "";
-                clickHome.classList.remove('active');
+                infoDetails.pontuação = (360 - (infoDetails.pontuação * 18.5));                
+                document.documentElement.classList.add('open-modal');
 
-                details.innerHTML = `<div class="container-grid">
-                                  <div class="details-container">
-                                      <div class="details-content" style="background-image: url('https://image.tmdb.org/t/p/original/${infoDetails.poster}');">
-                                          <h1>${infoDetails.nome}</h1>
-                                          <p>${infoDetails.sinopse}</p>
-                                          <div class="buttons-slides">
-                                            <div class="buttons">
-                                              <button class="primary-button" id="return-button">Voltar</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>`;
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
 
-                const btnVoltar = document.getElementById('return-button');
                 btnVoltar.addEventListener('click', () => {
-
-                });
+                  document.documentElement.classList.remove('open-modal');
+                }); 
 
               });
           })
@@ -169,33 +165,21 @@ const initHomePage = () => {
                   sinopse: json.data.overview,
                   poster: json.data.backdrop_path,
                   data: json.data.release_date,
-                  pontuação: json.data.vote_average
-
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
                 }
-                sliderHome.innerHTML = "";
-                todasListas.innerHTML = "";
-                todasListas.style.padding = "0"
-                details.innerHTML = "";
-                clickHome.classList.remove('active');
+                infoDetails.pontuação = (360 - (infoDetails.pontuação * 18.5));
+                document.documentElement.classList.add('open-modal');
 
-                details.innerHTML = `<div class="container-grid">
-                                  <div class="details-container">
-                                      <div class="details-content" style="background-image: url('https://image.tmdb.org/t/p/original/${infoDetails.poster}');">
-                                          <h1>${infoDetails.nome}</h1>
-                                          <p>${infoDetails.sinopse}</p>
-                                          <div class="buttons-slides">
-                                            <div class="buttons">
-                                              <button class="primary-button" id="return-button">Voltar</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>`;
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
 
-                const btnVoltar = document.getElementById('return-button');
                 btnVoltar.addEventListener('click', () => {
-
-                });
+                  document.documentElement.classList.remove('open-modal');
+                }); 
 
               });
           })
@@ -254,33 +238,22 @@ const initHomePage = () => {
                   sinopse: json.data.overview,
                   poster: json.data.backdrop_path,
                   data: json.data.release_date,
-                  pontuação: json.data.vote_average
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
 
                 }
-                sliderHome.innerHTML = "";
-                todasListas.innerHTML = "";
-                todasListas.style.padding = "0"
-                details.innerHTML = "";
-                clickHome.classList.remove('active');
+                infoDetails.pontuação = (360 - (infoDetails.pontuação * 18.5));
+                document.documentElement.classList.add('open-modal');
 
-                details.innerHTML = `<div class="container-grid">
-                                  <div class="details-container">
-                                      <div class="details-content" style="background-image: url('https://image.tmdb.org/t/p/original/${infoDetails.poster}');">
-                                          <h1>${infoDetails.nome}</h1>
-                                          <p>${infoDetails.sinopse}</p>
-                                          <div class="buttons-slides">
-                                            <div class="buttons">
-                                              <button class="primary-button" id="return-button">Voltar</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>`;
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
 
-                const btnVoltar = document.getElementById('return-button');
                 btnVoltar.addEventListener('click', () => {
-
-                });
+                  document.documentElement.classList.remove('open-modal');
+                }); 
 
               });
           })
@@ -340,33 +313,22 @@ const initHomePage = () => {
                   sinopse: json.data.overview,
                   poster: json.data.backdrop_path,
                   data: json.data.release_date,
-                  pontuação: json.data.vote_average
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
 
                 }
-                sliderHome.innerHTML = "";
-                todasListas.innerHTML = "";
-                todasListas.style.padding = "0"
-                details.innerHTML = "";
-                clickHome.classList.remove('active');
+                infoDetails.pontuação = (360 - (infoDetails.pontuação * 18.5));
+                document.documentElement.classList.add('open-modal');
 
-                details.innerHTML = `<div class="container-grid">
-                                  <div class="details-container">
-                                      <div class="details-content" style="background-image: url('https://image.tmdb.org/t/p/original/${infoDetails.poster}');">
-                                          <h1>${infoDetails.nome}</h1>
-                                          <p>${infoDetails.sinopse}</p>
-                                          <div class="buttons-slides">
-                                            <div class="buttons">
-                                              <button class="primary-button" id="return-button">Voltar</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>`;
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
 
-                const btnVoltar = document.getElementById('return-button');
                 btnVoltar.addEventListener('click', () => {
-
-                });
+                  document.documentElement.classList.remove('open-modal');
+                });              
 
               });
           })
@@ -394,15 +356,13 @@ const clickHomePage = () => {
     todasListas.innerHTML = "";
     details.innerHTML = "";
 
-    initListTrendingMovies();
-    initListPopularTV();
-    initListPopularMovies();
-    initListHighTV();
-    initListHighMovies();
+    initHomePage();
 
   })
 
 }
+
+
 
 initHomePage();
 clickHomePage();
