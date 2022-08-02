@@ -1,4 +1,4 @@
-const sliderPrincipal = new Swiper("#slider-principal", {
+const sliderPrincipal = new Swiper(".content-slides", {
   loop: true,
   loopedSlides: 20,
   observer: true,

@@ -85,7 +85,7 @@ header {
                     &.active {
                         border-right: 4px solid $brand-red;
                     }
-                    a {
+                    .btn-menu-lateral {
                         display: flex;
                         align-items: center;
                         .icon {
@@ -130,7 +130,7 @@ header {
             ul {
                 li {
                     padding: 0 2.8rem;
-                    a {
+                    .btn-menu-lateral {
                         .icon {
                             margin: 0;
                         }
