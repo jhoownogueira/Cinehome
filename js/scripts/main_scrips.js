@@ -15,12 +15,180 @@ const detailsNome = document.getElementById("details-nome");
 const detailsSinopse = document.getElementById("details-sinopse");
 const detailsMeterCircle = document.getElementById("meter-circle");
 const detailsMeterPontuacao = document.getElementById("meter-pontuacao");
+
 const btnVoltar = document.getElementById("btn-voltar");
+const btnFecharSearch = document.getElementById("close-search");
 
 const clickHome = document.getElementById("home-page");
 const clickMovies = document.getElementById("movies-page");
 const clickSeries = document.getElementById("series-page");
 
+const searchContainer = document.getElementById("search-container");
+const inputSearch = document.getElementById("input-search");
+const listaSearchMovies = document.getElementById("resultados-filmes");
+const listaSearchSeries = document.getElementById("resultados-series");
+
+const search = () => {
+
+inputSearch.addEventListener('input', () => {
+  searchContainer.classList.add('active');
+  listaSearchMovies.innerHTML = "";
+  listaSearchMovies.innerHTML = `<h2>Filmes</h2>`;
+  listaSearchSeries.innerHTML = "";
+  listaSearchSeries.innerHTML = `<h2>Series</h2>`;
+  let inputValue = inputSearch.value;
+  
+  axios({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/search/multi?api_key=93f7813158e109c144b2cfefacb802be&query=${inputValue}&language=pt-Br`,
+  })
+  .then((json) => {
+    let { results } = json.data;
+    results.forEach(index => {
+
+     const searchAll = {
+      nomeFilme: index.title,
+      nomeSerie: index.name,
+      image: index.poster_path,
+      anoFilme: index.release_date,
+      anoSerie: index.first_air_date,
+      tipoMidia: index.media_type,
+      id: index.id,
+     }
+
+      if (searchAll.tipoMidia === "movie") {
+        
+        let createCardMovies = document.createElement('button');
+        createCardMovies.classList = "card-content";
+
+        createCardMovies.innerHTML = `<div class="image-mask" style="background-image: url('https://image.tmdb.org/t/p/original/${searchAll.image}');">
+                                      </div>
+                                      <div class="info-card">
+                                          <h3>${searchAll.nomeFilme}</h3>
+                                          <span>${searchAll.anoFilme.slice(0, 4)}</span>
+                                          <small>${searchAll.id}</small>
+                                      </div>`;
+                                      
+        listaSearchMovies.appendChild(createCardMovies);
+
+        const detalharItensListaMovies = () => {
+          const cardsSelection = document.querySelectorAll(
+            ".resultados-pesquisa .container-grid .resultados .card-content"
+          );
+          cardsSelection.forEach((index) => {
+            index.addEventListener("click", () => {
+              let idCardSelection = index.children[1].children[2].textContent;
+    
+              axios({
+                method: "GET",
+                url: `https://api.themoviedb.org/3/movie/${idCardSelection}?api_key=93f7813158e109c144b2cfefacb802be&language=pt-BR`,
+              }).then((json) => {
+                const infoDetails = {
+                  nome: json.data.title,
+                  sinopse: json.data.overview,
+                  poster: json.data.backdrop_path,
+                  data: json.data.release_date,
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
+                };
+                infoDetails.pontuação = 360 - infoDetails.pontuação * 18.5;
+                document.documentElement.classList.add("open-modal");
+    
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
+    
+                btnVoltar.addEventListener("click", () => {
+                  document.documentElement.classList.remove("open-modal");
+                });
+              });
+            });
+          });
+        };
+        detalharItensListaMovies();
+
+      } 
+      
+      else if (searchAll.tipoMidia === "tv") {
+
+        let createCardSeries = document.createElement('button');
+        createCardSeries.classList = "card-content";
+
+        createCardSeries.innerHTML = `<div class="image-mask" style="background-image: url('https://image.tmdb.org/t/p/original/${searchAll.image}');">
+                                      </div>
+                                      <div class="info-card">
+                                          <h3>${searchAll.nomeSerie}</h3>
+                                          <span>${searchAll.anoSerie.slice(0, 4)}</span>
+                                          <small>${searchAll.id}</small>
+                                      </div>`;
+
+        listaSearchSeries.appendChild(createCardSeries);
+
+        const detalharItensListaSeries = () => {
+          const cardsSelection = document.querySelectorAll(
+            ".resultados-pesquisa .container-grid .resultados .card-content"
+          );
+          cardsSelection.forEach((index) => {
+            index.addEventListener("click", () => {
+              let idCardSelection = index.children[1].children[2].textContent;
+    
+              axios({
+                method: "GET",
+                url: `https://api.themoviedb.org/3/tv/${idCardSelection}?api_key=93f7813158e109c144b2cfefacb802be&language=pt-BR`,
+              }).then((json) => {
+                const infoDetails = {
+                  nome: json.data.name,
+                  sinopse: json.data.overview,
+                  poster: json.data.backdrop_path,
+                  data: json.data.release_date,
+                  pontuação: json.data.vote_average,
+                  pontuacaoNum: json.data.vote_average.toFixed(2),
+                };
+                infoDetails.pontuação = 360 - infoDetails.pontuação * 18.5;
+                document.documentElement.classList.add("open-modal");
+    
+                detailsPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${infoDetails.poster}')`;
+                detailsNome.innerText = `${infoDetails.nome}`;
+                detailsSinopse.innerText = `${infoDetails.sinopse}`;
+                detailsMeterCircle.style.strokeDashoffset = `${infoDetails.pontuação}`;
+                detailsMeterPontuacao.innerText = `${infoDetails.pontuacaoNum}`;
+    
+                btnVoltar.addEventListener("click", () => {
+                  document.documentElement.classList.remove("open-modal");
+                });
+              });
+            });
+          });
+        };
+        detalharItensListaSeries();
+
+      } else {
+        
+        
+
+      }
+    })
+
+    
+
+  })
+
+  btnFecharSearch.addEventListener('click', () => {
+    searchContainer.classList.remove('active');
+    inputSearch.value = "";
+  })
+
+  document.onkeydown = (e) => {
+    if (e.key === "Escape") {
+      searchContainer.classList.remove('active');
+      inputSearch.value = "";
+    }
+  }
+
+})
+};
 
 const limparListas = () => {
 
@@ -980,6 +1148,7 @@ const clickSeriesPage = () => {
 
 
 initHomePage();
+search();
 clickHomePage();
 clickMoviesPage();
 clickSeriesPage();

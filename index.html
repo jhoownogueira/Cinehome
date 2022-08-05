@@ -15,8 +15,21 @@
 <body>
     <header>
         <div class="container-grid">
+            <div class="input-pesquisar">
+                <input type="text" placeholder="Pesquisar" id="input-search">
+                <img src="img/icon-pesquisar.svg" class="icon-pesquisar" id="input-pesquisar">
+            </div>
             <img src="img/logo-cinehome.svg" alt="">
         </div>
+        <section class="resultados-pesquisa" id="search-container">
+            <button id="close-search">X</button>
+            <div class="container-grid">
+                <div class="resultados" id="resultados-filmes">
+                </div>
+                <div class="resultados" id="resultados-series">
+                </div>
+            </div>
+        </section>
     </header>
     <aside class="menu-hamburguer active">
         <div class="menu-lateral">
@@ -55,14 +68,6 @@
                             <img src="img/icon-series.svg" alt="">
                         </div>
                         <span>Series</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="btn-menu-lateral">
-                        <div class="icon">
-                            <img src="img/icon-populares.svg" alt="">
-                        </div>
-                        <span>Populares</span>
                         </div>
                     </li>
                 </ul>

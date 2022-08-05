@@ -8,7 +8,7 @@ const sliderPrincipal = new Swiper(".content-slides", {
   observeParents: true,
   effect: "fade",
   autoplay: {
-    delay: 2000,
+    delay: 5000,
     disableOnInteraction: false,
   },
   pagination: {
