@@ -18,7 +18,7 @@ header {
         top: 9rem;
         left: 0;
         width: 100%;
-        height: auto;
+        height: 0;
         background: rgba(0, 0, 0, 0.75);
         backdrop-filter: blur(20px);
         padding: 15rem 0 3.2rem 0;
@@ -51,7 +51,7 @@ header {
             }
             .resultados {
                 width: 100%;
-                height: auto;
+                height: 0;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(10, 41.7rem);
@@ -65,6 +65,12 @@ header {
         &.active {
             opacity: 1;
             pointer-events: all;
+            height: auto;
+            .container-grid {
+                .resultados {
+                    height: auto;
+                }
+            }
         }
     }
 
